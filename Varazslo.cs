@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AbsztraktEsInterface
 {
-    internal class Varazslo
+    internal class Varazslo : Karakter
     {
+        public int Mana { get; set; }
+        public int MaxMana { get; set; }
+        public int Varazsero { get; set; }
     }
 }

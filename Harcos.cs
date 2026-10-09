@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AbsztraktEsInterface
 {
-    internal class Harcos
+    internal class Harcos : Karakter
     {
+        public int Ero { get; set; }
+
     }
 }
