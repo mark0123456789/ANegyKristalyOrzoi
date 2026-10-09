@@ -15,18 +15,26 @@ namespace AbsztraktEsInterface
         public int Tapasztalat { get; set; }
         public int Arany { get; set; }
 
-        public int SebzestKap(int sebzes) 
+        public void SebzestKap(int sebzes) 
         {
-         return  Eletero -= sebzes;
+            if (sebzes <0)
+            {
+                return;
+            }
+            Eletero -= sebzes;
+            if (Eletero <0)
+            {
+                Eletero = 0;
+            }
         }
 
-        public int SzintetLep() 
+        public void SzintetLep() 
         {
             Szint++;
             Tapasztalat = 0;
             MaxEletero += 10;
             Eletero = MaxEletero;
-            return Szint;
+           
         }
 
         public override string? ToString()
