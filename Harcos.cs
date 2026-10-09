@@ -8,30 +8,45 @@ namespace AbsztraktEsInterface
 {
     internal class Harcos : Karakter, ITamadhato, IGyogyithato
     {
-        public int Ero { get; set; }
+        public int Ero { get; private set; }
+
+        public override string Tipus => "Harcos";
+
+        public Harcos(string nev)
+            : base(nev, 120)
+        {
+            Ero = 20;
+        }
 
         public void Tamadas(Karakter celpont)
         {
-            if (celpont == null || Eletero <= 0)
+            if (celpont == null || EletEro <= 0)
             {
                 return;
             }
+
             celpont.SebzestKap(Ero);
-            Console.WriteLine($"{Nev} Megtámadta az ellenfelet. Sebzés:{Ero}");
+
+            Console.WriteLine(
+                $"{Nev} karddal támadott! Sebzés: {Ero}");
         }
+
         public void Gyogyitas()
         {
-            if (Eletero <=0)
+            if (EletEro <= 0 || EletEro == MaxEletEro)
             {
+                Console.WriteLine("Most nem tudsz gyógyulni!");
                 return;
             }
-            Eletero += 20;
-            if (Eletero > MaxEletero)
+
+            EletEro += 20;
+
+            if (EletEro > MaxEletEro)
             {
-                Eletero = MaxEletero;
-                Console.WriteLine($"{Nev} Maximális életerejére gyógyult({MaxEletero})");
+                EletEro = MaxEletEro;
             }
-            Console.WriteLine($"{Nev} 20 életerőt gyógyult");
+
+            Console.WriteLine($"{Nev} használt egy gyógyitalt.");
         }
     }
 }

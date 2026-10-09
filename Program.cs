@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-           
+            Jatek jatek = new Jatek();
+            jatek.Menu();
         }
     }
 }
